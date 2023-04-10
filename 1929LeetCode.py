@@ -9,16 +9,21 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        res = []
-        if not nums:
-            return res
+        # res = []
+        # if not nums:
+        #     return res
             
-        for i in range((len(nums)) * 2):
-            i = i % len(nums)
+        # for i in range((len(nums)) * 2):
+        #     i = i % len(nums)
 
-            res.append(nums[i])
+        #     res.append(nums[i])
 
-        return res
+        # return res
+        num = []
+        num = nums.copy()
+        
+        nums.extend(num)
+        return nums
 
 # d8ifferent inputs
 nums = [1,2,1]

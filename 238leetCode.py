@@ -4,27 +4,36 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        res = []
-        for i in range(len(nums)):
-            sum = 1
-            for j in range(len(nums)):
-                if i == j :
-                    # continue
-                    if nums[i] != 0:
-                        sum = sum/nums[i]
-                    else:
-                        sum = sum/1
-                sum *= nums[j]
-                print(sum)
+        res = [1]* len(nums)
 
-            res.append(sum)
+        # prefix
+        #   intializing prefix value and saving it to res
+
+        prefix = 1
+
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *= nums[i]
+
+
+        # postfix
+        #   initializing postfix value and saving it to res
+        # travaling in reverse order
+
+        postfix = 1
+        for i in range(len(nums)-1,-1,-1):
+            res[i] *= postfix
+            postfix *= nums[i]
 
 
         return res
 
+        
+     
+
 obj = Solution()
 nums = [1,2,3,4]
-nums = [-1,1,0,-3,3]
+# nums = [-1,1,0,-3,3]
 
 res = obj.productExceptSelf(nums)
 print(res)         

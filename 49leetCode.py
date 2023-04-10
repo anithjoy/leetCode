@@ -4,16 +4,27 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        res= {}
+        # res= {}
 
-        for s in strs:
-            sorted_s = "".join(sorted(s))
-            if sorted_s in res:
-                res[sorted_s].append(s)
+        # for s in strs:
+        #     sorted_s = "".join(sorted(s))
+        #     if sorted_s in res:
+        #         res[sorted_s].append(s)
+        #     else:
+        #         res[sorted_s] = [s]
+
+        # return res.values()
+
+        hashmap = {}
+
+        for i in strs:
+            string ="".join(sorted(i)) # will give us array
+            if string in hashmap:
+                hashmap[string].append(i)
             else:
-                res[sorted_s] = [s]
+                hashmap[string]=[i]
 
-        return res.values()
+        return hashmap.values()
 
 
 obj = Solution()

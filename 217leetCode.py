@@ -9,21 +9,39 @@ Output: true"""
 
 
 
+# class Solution(object):
+#     def containsDuplicate(self, nums):
+#         """
+#         :type nums: List[int]
+#         :rtype: bool
+#         """
+#         hashMap = {}
+#         for number in nums:
+#             if number in hashMap:
+#                 return True
+#             hashMap[number]=1
+#         return False
+
 class Solution(object):
     def containsDuplicate(self, nums):
         """
         :type nums: List[int]
         :rtype: bool
         """
-        hashMap = {}
+        hashmap = {}
+
         for number in nums:
-            if number in hashMap:
+            if number in hashmap:
                 return True
-            hashMap[number]=1
+            hashmap[number] = 1
+
         return False
 
 
+
+
+
 obj1 = Solution()
-ans = obj1.containsDuplicate([1,2,3])
+ans = obj1.containsDuplicate([1,2,3,5,1])
 
 print(ans)
