@@ -18,7 +18,7 @@ class Graph:
             print(f"{vertex}: {neighbors}")
 
 
-    def displayDSF(self, startNode):
+    def displayDFS(self, startNode):
 
         stack = []
         stack.append(startNode)
@@ -71,7 +71,7 @@ my_graph.add_edge('C','F')
 my_graph.add_edge('F','X')
 
 my_graph.display()
-my_graph.displayDSF(startNode="A")
+my_graph.displayDFS(startNode="A")
 
 print()
 my_graph.displayBFS(startNode="A")
