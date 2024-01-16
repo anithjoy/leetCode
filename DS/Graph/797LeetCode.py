@@ -4,18 +4,26 @@ class Solution(object):
         :type graph: List[List[int]]
         :rtype: List[List[int]]
         """
-        res = []
-        def bfs(path):
 
-            if graph[path[-1]] == path[-1]-1:
-                res.append(path)
+        finalResult = []
+        end = len(graph)-1
+        print(end)
+
+        def dfs(v,res=[]):
+            res.append(v)
+
+            if v == end :
+                finalResult.append(res[:])
                 return
+            
+            for eachNode in graph[v]:
+                dfs(eachNode, res[:])
 
-            for node in graph[path[-1]]:
-                bfs(path.append(node))
+        dfs(0,[])
+        return(finalResult)
 
-        bfs([0])
-        return res
+
+        
                 
 
 graph = [[1,2], [3], [3], []]

@@ -36,6 +36,9 @@ class Graph:
         # removing vertex
         del self.graph[vertex]
 
+    def display(self):
+        for key in self.graph:
+            print(f"{key}->{self.graph[key]}")
 
     
 # Example Usage:
@@ -49,3 +52,16 @@ my_graph.addEdges('C','E')
 my_graph.addEdges('C','F')
 my_graph.addEdges('F','X')
 
+my_graph.display()
+
+
+# Output-
+"""
+A->['B', 'C']
+B->['A', 'D']
+C->['A', 'D', 'E', 'F']
+D->['B', 'C']
+E->['C']
+F->['C', 'X']
+X->['F']
+"""
