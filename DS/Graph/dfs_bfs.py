@@ -40,16 +40,18 @@ class Graph:
         q = deque()
         q.append(startNode)
         visited = set()
+        visited.add(startNode)
         
 
         while q:
             node = q.popleft()
-            visited.add(node)
+            # visited.add(node)
             print(node)
 
             for eachNode in self.graph[node]:
                 if eachNode not in visited:
                     q.append(eachNode)
+                    visited.add(eachNode)
                     
 
 
