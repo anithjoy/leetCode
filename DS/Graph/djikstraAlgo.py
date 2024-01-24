@@ -2,22 +2,24 @@ import heapq
 
 def dijkstra(graph, source):
     # Initialization
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[source] = 0
-    priority_queue = [(0, source)]
+    distance = {vertex:float("infinity") for vertex in graph}
+    distance[source] = 0
+    priority_queue = [(0,source)]
 
     while priority_queue:
         # Extract vertex with minimum distance
-        current_distance, current_vertex = heapq.heappop(priority_queue)
+        currDistance, currNode = heapq.heappop(priority_queue)
 
         # Relaxation
-        for neighbor, weight in graph[current_vertex].items():
-            distance = current_distance + weight
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(priority_queue, (distance, neighbor))
+        for vertex,weight in graph[currNode].items():
+            newDistance = currDistance + weight
 
-    return distances
+            if newDistance < distance[vertex]:
+                distance[vertex] = newDistance
+                heapq.heappush(priority_queue, (newDistance,vertex))
+
+    return distance
+
 
 # Example usage:
 graph_example = {
