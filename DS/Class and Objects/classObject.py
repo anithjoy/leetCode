@@ -19,9 +19,14 @@ class Car(Machine):
 
     def start(self):
         print(f"{self.Type} {self.Name} started of Owner {self.Owner}")
+        self.helper()
 
     def stop(self):
         print(f"{self.Type} {self.Name} stopped of Owner {self.Owner}")
+
+    def helper(self):
+        print("This is a helper function")
+    
     
         
 
